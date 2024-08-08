@@ -564,11 +564,11 @@ namespace OdysseyVehicle
             }
         }
 
-        public override GameObject BoundingBox
+        public override BoxCollider BoundingBoxCollider
         {
             get
             {
-                return transform.Find("Things/BoundingBox").gameObject;
+                return transform.Find("Things/BoundingBox").gameObject.GetComponent<BoxCollider>();
             }
         }
 
