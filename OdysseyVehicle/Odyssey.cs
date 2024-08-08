@@ -33,6 +33,9 @@ namespace OdysseyVehicle
         public static Texture2D hull_metal = null;
         public static Texture2D hull_normal = null;
 
+        public VehicleFramework.VehicleComponents.MVCameraController cams = null;
+        private Transform topCam => transform.Find("Geometry/camera/lens");
+        private Transform bottomCam => transform.Find("Geometry/camera2/lens");
         public static GameObject name_label_generator = null;
         public static Texture2D name_details = null; 
 
@@ -841,6 +844,7 @@ namespace OdysseyVehicle
 
         public override void Awake()
         {
+            innerNameLabelsToGenerate = null;
             // Give the Odyssey a new name and make sure we track it well.
             OGVehicleName = "ODY-" + Mathf.RoundToInt(UnityEngine.Random.value * 10000).ToString();
             vehicleName = OGVehicleName;
@@ -855,6 +859,9 @@ namespace OdysseyVehicle
         {
             base.Start();
             ApplySkyAppliers();
+            cams = gameObject.AddComponent<VehicleFramework.VehicleComponents.MVCameraController>();
+            cams.AddCamera(topCam, "top");
+            cams.AddCamera(bottomCam, "bottom");
         }
 
         public Sequence aiBatterySequence = new Sequence();
@@ -921,12 +928,6 @@ namespace OdysseyVehicle
             }
             // should never get here, return zero anyway :shrug:
             return 0;
-        }
-
-        public override void ModVehicleReset()
-        {
-            base.ModVehicleReset();
-            innerNameLabelsToGenerate = null;
         }
 
         void ILightsStatusListener.OnHeadLightsOn()

@@ -15,7 +15,7 @@ namespace OdysseyVehicle
     {
         [HarmonyPostfix]
         [HarmonyPatch("Update")]
-        public static void OpenPDAPrefix(VehicleUpgradeConsoleInput __instance, Sequence ___sequence)
+        public static void VehicleUpgradeConsoleInputUpdatePostfix(VehicleUpgradeConsoleInput __instance, Sequence ___sequence)
         {
             // control opening the modules hatch
             if (__instance.GetComponentInParent<Odyssey>() != null)
