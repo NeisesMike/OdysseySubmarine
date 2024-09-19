@@ -593,16 +593,15 @@ namespace OdysseyVehicle
         {
             get
             {
-                //return transform.Find("Geometry/Interior_Main_light/SteeringConsole/SteeringConsoleArmature/SteeringRoot 1/SteeringStem1/SteeringStem2/SteeringWheel 1/LeftHandPlug").gameObject;
-                return null;
+                return transform.Find("Geometry/Interior_Main_light/SteeringConsole/SteeringConsoleArmature/SteeringRoot 1/SteeringStem1/SteeringStem2/SteeringWheel 1/LeftHandPlug").gameObject;
+
             }
         }
         public override GameObject SteeringWheelRightHandTarget
         {
             get
             {
-                //return transform.Find("Geometry/Interior_Main_light/SteeringConsole/SteeringConsoleArmature/SteeringRoot 1/SteeringStem1/SteeringStem2/SteeringWheel 1/RightHandPlug").gameObject;
-                return null;
+                return transform.Find("Geometry/Interior_Main_light/SteeringConsole/SteeringConsoleArmature/SteeringRoot 1/SteeringStem1/SteeringStem2/SteeringWheel 1/RightHandPlug").gameObject;
             }
         }
 
