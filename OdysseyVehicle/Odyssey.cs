@@ -675,6 +675,7 @@ namespace OdysseyVehicle
                 return lights;
             }
         }
+        public override PilotingStyle pilotingStyle => PilotingStyle.Seamoth;
 
         public override void SubConstructionBeginning()
         {
