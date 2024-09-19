@@ -862,6 +862,10 @@ namespace OdysseyVehicle
             cams = gameObject.AddComponent<VehicleFramework.VehicleComponents.MVCameraController>();
             cams.AddCamera(topCam, "top");
             cams.AddCamera(bottomCam, "bottom");
+            var steering = transform.Find("Geometry/Interior_Main_light/SteeringConsole/SteeringConsoleArmature/SteeringRoot 1/SteeringStem1/SteeringStem2/SteeringWheel 1")
+                .gameObject
+                .EnsureComponent<VehicleFramework.VehicleComponents.SteeringWheel>();
+            steering.yawAxis = VehicleFramework.VehicleComponents.SteeringWheel.YawAxis.minusY;
         }
 
         public Sequence aiBatterySequence = new Sequence();
