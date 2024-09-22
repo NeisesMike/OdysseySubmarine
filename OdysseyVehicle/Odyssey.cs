@@ -977,9 +977,9 @@ namespace OdysseyVehicle
                 ska.renderers.Append(rend);
             }
         }
-        public override void OnVehicleDocked()
+        public override void OnVehicleDocked(Vehicle vehicle, Vector3 exitLocation)
         {
-            base.OnVehicleDocked();
+            base.OnVehicleDocked(vehicle, exitLocation);
             upgradesInput.collider.enabled = true;
         }
         public override void OnVehicleUndocked()
