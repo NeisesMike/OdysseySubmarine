@@ -95,8 +95,8 @@
     <Compile Include="Odyssey.cs" />
     <Compile Include="MainPatcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="uGUI_ItemSelectorPatcher.cs" />
     <Compile Include="VehicleUpgradeConsoleInputPatcher.cs" />
+    <Compile Include="VehicleBatteryInputPatcher.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
