@@ -222,23 +222,6 @@ namespace OdysseyVehicle
             }
         }
 
-
-        public override GameObject StorageRootObject
-        {
-            get
-            {
-                return transform.Find("StorageRoot").gameObject;
-            }
-        }
-
-        public override GameObject ModulesRootObject
-        {
-            get
-            {
-                return transform.Find("ModulesRoot").gameObject;
-            }
-        }
-
         public override List<VehiclePilotSeat> PilotSeats
         {
             get
