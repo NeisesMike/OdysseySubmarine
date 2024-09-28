@@ -532,6 +532,18 @@ namespace OdysseyVehicle
                 return list;
             }
         }
+        public override List<Transform> LavaLarvaAttachPoints
+        {
+            get
+            {
+                var list = new List<Transform>();
+                foreach (Transform child in transform.Find("Things/LavaLarvaAttachPoints"))
+                {
+                    list.Add(child);
+                }
+                return list;
+            }
+        }
         public override GameObject ColorPicker
         {
             get
