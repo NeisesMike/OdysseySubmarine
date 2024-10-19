@@ -271,32 +271,40 @@ namespace OdysseyVehicle
         {
             get
             {
-                var list = new List<VehicleFramework.VehicleParts.VehicleStorage>();
+                var list = new List<VehicleStorage>();
 
                 Transform innate1 = transform.Find("Geometry/Interior_Main/InnateStorage/DoorModule/InateStorageBaseRooms.001/InateStorageRoot.001/Rail1.001/Rail2.001/Rail3.001/InateStorageDoor.001_light");
                 Transform innate2 = transform.Find("Geometry/Interior_Main/InnateStorage/DoorModule.001/InateStorageBaseRooms.002/InateStorageRoot.002/Rail1.002/Rail2.002/Rail3.002/InateStorageDoor.002_light");
                 Transform innate3 = transform.Find("Geometry/Interior_Main/InnateStorage/DoorModule.002/InateStorageBaseRooms.003/InateStorageRoot.003/Rail1.003/Rail2.003/Rail3.003/InateStorageDoor.003_light");
                 Transform innate4 = transform.Find("Geometry/Interior_Main/InnateStorage/DoorModule.003/InateStorageBaseRooms.004/InateStorageRoot.004/Rail1.004/Rail2.004/Rail3.004/InateStorageDoor.004_light");
 
-                VehicleFramework.VehicleParts.VehicleStorage IS1 = new VehicleFramework.VehicleParts.VehicleStorage();
-                IS1.Container = innate1.gameObject;
-                IS1.Height = 6;
-                IS1.Width = 5;
+                VehicleStorage IS1 = new VehicleStorage
+                {
+                    Container = innate1.gameObject,
+                    Height = 6,
+                    Width = 5
+                };
                 list.Add(IS1);
-                VehicleFramework.VehicleParts.VehicleStorage IS2 = new VehicleFramework.VehicleParts.VehicleStorage();
-                IS2.Container = innate2.gameObject;
-                IS2.Height = 6;
-                IS2.Width = 5;
+                VehicleStorage IS2 = new VehicleStorage
+                {
+                    Container = innate2.gameObject,
+                    Height = 6,
+                    Width = 5
+                };
                 list.Add(IS2);
-                VehicleFramework.VehicleParts.VehicleStorage IS3 = new VehicleFramework.VehicleParts.VehicleStorage();
-                IS3.Container = innate3.gameObject;
-                IS3.Height = 6;
-                IS3.Width = 5;
+                VehicleStorage IS3 = new VehicleStorage
+                {
+                    Container = innate3.gameObject,
+                    Height = 6,
+                    Width = 5
+                };
                 list.Add(IS3);
-                VehicleFramework.VehicleParts.VehicleStorage IS4 = new VehicleFramework.VehicleParts.VehicleStorage();
-                IS4.Container = innate4.gameObject;
-                IS4.Height = 6;
-                IS4.Width = 5;
+                VehicleStorage IS4 = new VehicleStorage
+                {
+                    Container = innate4.gameObject,
+                    Height = 6,
+                    Width = 5
+                };
                 list.Add(IS4);
 
                 return list;
@@ -321,138 +329,61 @@ namespace OdysseyVehicle
             }
         }
 
-        public override List<VehicleUpgrades> Upgrades
+        public override List<VehicleUpgrades> Upgrades => new List<VehicleUpgrades>
         {
-            get
-            {
-                var list = new List<VehicleFramework.VehicleParts.VehicleUpgrades>();
-                VehicleFramework.VehicleParts.VehicleUpgrades vu = new VehicleFramework.VehicleParts.VehicleUpgrades();
-                vu.Interface = transform.Find("Geometry/Interior_Main/Exterior Panels/Panel Left/PanelInsertLeft").gameObject;
-                vu.Flap = transform.Find("Geometry/Interior_Main/Exterior Panels/Panel Left/DoorLeftTopHinge").gameObject;
-                vu.AnglesClosed = Vector3.zero;
-                vu.AnglesOpened = new Vector3(0, 90, 0);
-
-                List<Transform> proxies = new List<Transform>();
-                proxies.Add(transform.Find("Proxies/UpgradeModuleProxy_1"));
-                proxies.Add(transform.Find("Proxies/UpgradeModuleProxy_2"));
-                proxies.Add(transform.Find("Proxies/UpgradeModuleProxy_3"));
-                proxies.Add(transform.Find("Proxies/UpgradeModuleProxy_4"));
-                proxies.Add(transform.Find("Proxies/UpgradeModuleProxy_5"));
-                proxies.Add(transform.Find("Proxies/UpgradeModuleProxy_6"));
-                proxies.Add(transform.Find("Proxies/UpgradeModuleProxy_7"));
-                proxies.Add(transform.Find("Proxies/UpgradeModuleProxy_8"));
-                vu.ModuleProxies = proxies;
-
-                list.Add(vu);
-                return list;
-            }
-        }
-
-        public override List<VehicleBattery> Batteries
-        {
-            get
-            {
-                var list = new List<VehicleFramework.VehicleParts.VehicleBattery>();
-
-                VehicleFramework.VehicleParts.VehicleBattery vb1 = new VehicleFramework.VehicleParts.VehicleBattery();
-                vb1.BatterySlot = transform.Find("Geometry/Interior_Main/MainPower/PowerCellSlot.002").gameObject;
-                vb1.BatteryProxy = transform.Find("Proxies/Battery_1_Proxy");
-                list.Add(vb1);
-
-                VehicleFramework.VehicleParts.VehicleBattery vb2 = new VehicleFramework.VehicleParts.VehicleBattery();
-                vb2.BatterySlot = transform.Find("Geometry/Interior_Main/MainPower/PowerCellSlot.003").gameObject;
-                vb2.BatteryProxy = transform.Find("Proxies/Battery_2_Proxy");
-                list.Add(vb2);
-
-                VehicleFramework.VehicleParts.VehicleBattery vb3 = new VehicleFramework.VehicleParts.VehicleBattery();
-                vb3.BatterySlot = transform.Find("Geometry/Interior_Main/MainPower/PowerCellSlot").gameObject;
-                vb3.BatteryProxy = transform.Find("Proxies/Battery_3_Proxy");
-                list.Add(vb3);
-
-                VehicleFramework.VehicleParts.VehicleBattery vb4 = new VehicleFramework.VehicleParts.VehicleBattery();
-                vb4.BatterySlot = transform.Find("Geometry/Interior_Main/MainPower/PowerCellSlot.001").gameObject;
-                vb4.BatteryProxy = transform.Find("Proxies/Battery_4_Proxy");
-                list.Add(vb4);
-
-                return list;
-            }
-        }
-
-        public override List<VehicleBattery> BackupBatteries
-        {
-            get
-            {
-                var list = new List<VehicleFramework.VehicleParts.VehicleBattery>();
-                VehicleFramework.VehicleParts.VehicleBattery vb1 = new VehicleFramework.VehicleParts.VehicleBattery();
-                vb1.BatterySlot = transform.Find("Geometry/Interior_Main/Exterior Panels/Panel Right/PanelInsertRight").gameObject;
-                vb1.BatteryProxy = transform.Find("Proxies/BackupBattery_1_Proxy");
-                list.Add(vb1);
-                return list;
-            }
-        }
-
-        public override List<VehicleFloodLight> HeadLights
-        {
-            get
-            {
-                var list = new List<VehicleFramework.VehicleParts.VehicleFloodLight>();
-
-                VehicleFramework.VehicleParts.VehicleFloodLight leftLight = new VehicleFramework.VehicleParts.VehicleFloodLight
-                {
-                    Light = transform.Find("lights_parent/HeadLights/Left").gameObject,
-                    Angle = 70,
-                    Color = Color.white,
-                    Intensity = 1.3f,
-                    Range = 90f
-                };
-                list.Add(leftLight);
-
-                VehicleFramework.VehicleParts.VehicleFloodLight rightLight = new VehicleFramework.VehicleParts.VehicleFloodLight
-                {
-                    Light = transform.Find("lights_parent/HeadLights/Right").gameObject,
-                    Angle = 70,
-                    Color = Color.white,
-                    Intensity = 1.3f,
-                    Range = 90f
-                };
-                list.Add(rightLight);
-
-                return list;
-            }
-        }
-
-        public override List<VehicleFloodLight> FloodLights
-        {
-            get
-            {
-                var list = new List<VehicleFramework.VehicleParts.VehicleFloodLight>();
-
-                VehicleFramework.VehicleParts.VehicleFloodLight mainFlood = new VehicleFramework.VehicleParts.VehicleFloodLight
-                {
-                    Light = transform.Find("lights_parent/FloodLights/FrontCenter").gameObject,
-                    Angle = 120,
-                    Color = Color.white,
-                    Intensity = 1f,
-                    Range = 100f
-                };
-                list.Add(mainFlood);
-
-                foreach (Transform floodlight in transform.Find("lights_parent/FloodLights/LateralLights"))
-                {
-                    VehicleFramework.VehicleParts.VehicleFloodLight thisFloodLight = new VehicleFramework.VehicleParts.VehicleFloodLight
+            new VehicleUpgrades(
+                transform.Find("Geometry/Interior_Main/Exterior Panels/Panel Left/PanelInsertLeft").gameObject,
+                transform.Find("Geometry/Interior_Main/Exterior Panels/Panel Left/DoorLeftTopHinge").gameObject,
+                new Vector3(0, 90, 0),
+                Vector3.zero,
+                new List<Transform>
                     {
-                        Light = floodlight.gameObject,
-                        Angle = 90,
-                        Color = Color.white,
-                        Intensity = 1,
-                        Range = 120f
-                    };
-                    list.Add(thisFloodLight);
-                }
+                        transform.Find("Proxies/UpgradeModuleProxy_1"),
+                        transform.Find("Proxies/UpgradeModuleProxy_2"),
+                        transform.Find("Proxies/UpgradeModuleProxy_3"),
+                        transform.Find("Proxies/UpgradeModuleProxy_4"),
+                        transform.Find("Proxies/UpgradeModuleProxy_5"),
+                        transform.Find("Proxies/UpgradeModuleProxy_6"),
+                        transform.Find("Proxies/UpgradeModuleProxy_7"),
+                        transform.Find("Proxies/UpgradeModuleProxy_8")
+                    }
+                )
+        };
 
-                return list;
-            }
-        }
+        public override List<VehicleBattery> Batteries => new List<VehicleBattery>
+        {
+            new VehicleBattery(transform.Find("Geometry/Interior_Main/MainPower/PowerCellSlot.002").gameObject, transform.Find("Proxies/Battery_1_Proxy")),
+            new VehicleBattery(transform.Find("Geometry/Interior_Main/MainPower/PowerCellSlot.003").gameObject, transform.Find("Proxies/Battery_2_Proxy")),
+            new VehicleBattery(transform.Find("Geometry/Interior_Main/MainPower/PowerCellSlot").gameObject, transform.Find("Proxies/Battery_3_Proxy")),
+            new VehicleBattery(transform.Find("Geometry/Interior_Main/MainPower/PowerCellSlot.001").gameObject, transform.Find("Proxies/Battery_4_Proxy"))
+        };
+
+        public override List<VehicleBattery> BackupBatteries => new List<VehicleBattery>
+        {
+            new VehicleBattery(transform.Find("Geometry/Interior_Main/Exterior Panels/Panel Right/PanelInsertRight").gameObject, transform.Find("Proxies/BackupBattery_1_Proxy"))
+        };
+
+        public override List<VehicleFloodLight> HeadLights => new List<VehicleFloodLight>
+        {
+            new VehicleFloodLight(transform.Find("lights_parent/HeadLights/Left").gameObject, 1, 90, Color.white, 70),
+            new VehicleFloodLight(transform.Find("lights_parent/HeadLights/Right").gameObject, 1, 90, Color.white, 70)
+
+        };
+
+        public override List<VehicleFloodLight> FloodLights => new List<VehicleFloodLight>
+        {
+            new VehicleFloodLight(transform.Find("lights_parent/FloodLights/FrontCenter").gameObject, 1, 100, Color.white, 120),
+            new VehicleFloodLight(transform.Find("lights_parent/FloodLights/LateralLights/FrontLeft").gameObject, 1, 120, Color.white, 90),
+            new VehicleFloodLight(transform.Find("lights_parent/FloodLights/LateralLights/FrontRight").gameObject, 1, 120, Color.white, 90),
+            new VehicleFloodLight(transform.Find("lights_parent/FloodLights/LateralLights/RearLeft").gameObject, 1, 120, Color.white, 90),
+            new VehicleFloodLight(transform.Find("lights_parent/FloodLights/LateralLights/RearLeft").gameObject, 1, 120, Color.white, 90)
+
+        };
+        public override List<VehicleCamera> Cameras => new List<VehicleCamera>
+        {
+            new VehicleCamera(topCam, "top"),
+            new VehicleCamera(bottomCam, "bottom")
+        };
 
         public override List<GameObject> NavigationPortLights
         {
@@ -837,6 +768,7 @@ namespace OdysseyVehicle
             base.PaintVehicleDefaultStyle(name);
         }
 
+
         public override void Awake()
         {
             innerNameLabelsToGenerate = null;
@@ -854,9 +786,6 @@ namespace OdysseyVehicle
         {
             base.Start();
             ApplySkyAppliers();
-            cams = gameObject.AddComponent<VehicleFramework.VehicleComponents.MVCameraController>();
-            cams.AddCamera(topCam, "top");
-            cams.AddCamera(bottomCam, "bottom");
             var steering = transform.Find("Geometry/Interior_Main/SteeringConsole/SteeringConsoleArmature/SteeringRoot 1/SteeringStem1/SteeringStem2/SteeringWheel 1")
                 .gameObject
                 .EnsureComponent<VehicleFramework.VehicleComponents.SteeringWheel>();
