@@ -22,6 +22,7 @@ namespace OdysseyVehicle
         public static RuntimeAnimatorController animatorController = null;
         public static GameObject controlPanel = null;
         public static Atlas.Sprite pingSprite = null;
+        public static Sprite saveSprite = null;
         public static Atlas.Sprite crafterSprite = null;
 
         public const int textureRadius = 2048;
@@ -84,8 +85,8 @@ namespace OdysseyVehicle
                 {
                     SpriteAtlas thisAtlas = (SpriteAtlas)obj;
 
-                    Sprite ping = thisAtlas.GetSprite("PingSprite");
-                    pingSprite = new Atlas.Sprite(ping);
+                    saveSprite = thisAtlas.GetSprite("PingSprite");
+                    pingSprite = new Atlas.Sprite(saveSprite);
 
                     Sprite ping3 = thisAtlas.GetSprite("CrafterSprite");
                     crafterSprite = new Atlas.Sprite(ping3);
@@ -322,7 +323,7 @@ namespace OdysseyVehicle
                     Transform thisStorage = transform.Find("Geometry/ExternalStorage/ExternalStorage" + i.ToString());
                     thisVS.Container = thisStorage.gameObject;
                     thisVS.Height = 4;
-                    thisVS.Width = 4;
+                    thisVS.Width = 5;
                     list.Add(thisVS);
                 }
                 return list;
@@ -539,54 +540,14 @@ namespace OdysseyVehicle
             }
         }
 
-        public override Atlas.Sprite PingSprite
-        {
-            get
-            {
-                return pingSprite;
-            }
-        }
+        public override Atlas.Sprite PingSprite => pingSprite;
+        public override Sprite SaveFileSprite => saveSprite;
 
-        public override int BaseCrushDepth
-        {
-            get
-            {
-                return 600;
-            }
-        }
-
-        public override int MaxHealth
-        {
-            get
-            {
-                return 667;
-            }
-        }
-
-        public override int Mass
-        {
-            get
-            {
-                return 3500;
-            }
-        }
-
-        public override int NumModules
-        {
-            get
-            {
-                return 8;
-            }
-        }
-
-        public override bool HasArms
-        {
-            get
-            {
-                return false;
-            }
-        }
-
+        public override int BaseCrushDepth => 600;
+        public override int MaxHealth => 667;
+        public override int Mass => 3500;
+        public override int NumModules => 8;
+        public override bool HasArms => false;
         public override List<Light> InteriorLights
         {
             get
