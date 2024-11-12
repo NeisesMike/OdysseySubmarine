@@ -734,9 +734,8 @@ namespace OdysseyVehicle
         {
             innerNameLabelsToGenerate = null;
             // Give the Odyssey a new name and make sure we track it well.
-            OGVehicleName = "ODY-" + Mathf.RoundToInt(UnityEngine.Random.value * 10000).ToString();
-            vehicleName = OGVehicleName;
-            NowVehicleName = OGVehicleName;
+            string newName = "ODY-" + Mathf.RoundToInt(UnityEngine.Random.value * 10000).ToString();
+            SetName(newName);
             
             Player.main.StartCoroutine(ManageLabelQueue());
 
