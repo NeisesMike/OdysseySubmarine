@@ -37,7 +37,7 @@ namespace OdysseyVehicle
         }
     }
 
-    [BepInPlugin("com.mikjaw.subnautica.odyssey.mod", "Odyssey", "1.5.0")]
+    [BepInPlugin("com.mikjaw.subnautica.odyssey.mod", "Odyssey", "1.6.1")]
     [BepInDependency(VehicleFramework.PluginInfo.PLUGIN_GUID, VehicleFramework.PluginInfo.PLUGIN_VERSION)]
     [BepInDependency("com.snmodding.nautilus")]
     public class MainPatcher : BaseUnityPlugin
