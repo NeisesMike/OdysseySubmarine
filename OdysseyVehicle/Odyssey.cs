@@ -274,10 +274,10 @@ namespace OdysseyVehicle
             {
                 var list = new List<VehicleStorage>();
 
-                Transform innate1 = transform.Find("Geometry/Interior_Main/InnateStorage/DoorModule/InateStorageBaseRooms.001/InateStorageRoot.001/Rail1.001/Rail2.001/Rail3.001/InateStorageDoor.001_light");
-                Transform innate2 = transform.Find("Geometry/Interior_Main/InnateStorage/DoorModule.001/InateStorageBaseRooms.002/InateStorageRoot.002/Rail1.002/Rail2.002/Rail3.002/InateStorageDoor.002_light");
-                Transform innate3 = transform.Find("Geometry/Interior_Main/InnateStorage/DoorModule.002/InateStorageBaseRooms.003/InateStorageRoot.003/Rail1.003/Rail2.003/Rail3.003/InateStorageDoor.003_light");
-                Transform innate4 = transform.Find("Geometry/Interior_Main/InnateStorage/DoorModule.003/InateStorageBaseRooms.004/InateStorageRoot.004/Rail1.004/Rail2.004/Rail3.004/InateStorageDoor.004_light");
+                Transform innate1 = transform.Find("Geometry/Interior_Main/InnateStorage/DoorModule");
+                Transform innate2 = transform.Find("Geometry/Interior_Main/InnateStorage/DoorModule.001");
+                Transform innate3 = transform.Find("Geometry/Interior_Main/InnateStorage/DoorModule.002");
+                Transform innate4 = transform.Find("Geometry/Interior_Main/InnateStorage/DoorModule.003");
 
                 VehicleStorage IS1 = new VehicleStorage
                 {
@@ -756,16 +756,16 @@ namespace OdysseyVehicle
             this.mainAnimator.runtimeAnimatorController = animatorController;
             switch (storageName)
             {
-                case "InateStorageDoor.001_light":
-                    this.mainAnimator.SetBool("OD_inat_S1", open);
+                case "DoorModule":
+                    this.mainAnimator.SetBool("OD_inat_S1", open); 
                     return 1f;
-                case "InateStorageDoor.002_light":
+                case "DoorModule.001":
                     this.mainAnimator.SetBool("OD_inat_S2", open);
                     return 1f;
-                case "InateStorageDoor.003_light":
+                case "DoorModule.002":
                     this.mainAnimator.SetBool("OD_inat_S3", open);
                     return 1f;
-                case "InateStorageDoor.004_light":
+                case "DoorModule.003":
                     this.mainAnimator.SetBool("OD_inat_S4", open);
                     return 1f;
                 case "ExternalStorage1":
