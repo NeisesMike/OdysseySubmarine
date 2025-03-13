@@ -579,7 +579,7 @@ namespace OdysseyVehicle
         {
             IsDefaultTexture = false;
             base.PaintVehicleSection(materialName, col);
-            StartCoroutine(PaintVehicleSectionHelper(materialName, col));
+            UWE.CoroutineHost.StartCoroutine(PaintVehicleSectionHelper(materialName, col));
         }
         public IEnumerator PaintVehicleSectionHelper(string materialName, Color col)
         {
@@ -736,8 +736,8 @@ namespace OdysseyVehicle
             // Give the Odyssey a new name and make sure we track it well.
             string newName = "ODY-" + Mathf.RoundToInt(UnityEngine.Random.value * 10000).ToString();
             SetName(newName);
-            
-            Player.main.StartCoroutine(ManageLabelQueue());
+
+            UWE.CoroutineHost.StartCoroutine(ManageLabelQueue());
 
             // ModVehicle.Awake
             base.Awake();
