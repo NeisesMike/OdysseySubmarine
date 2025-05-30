@@ -80,7 +80,6 @@ namespace OdysseyVehicle
             System.Object[] arr = myLoadedAssetBundle.LoadAllAssets();
             foreach (System.Object obj in arr)
             {
-                Logger.Log(obj.ToString());
                 if (obj.ToString().Contains("SpriteAtlas"))
                 {
                     SpriteAtlas thisAtlas = (SpriteAtlas)obj;
@@ -125,7 +124,7 @@ namespace OdysseyVehicle
                 }
                 else
                 {
-                    //Logger.Log(obj.ToString());
+                    Logger.Log(obj.ToString());
                 }
             }
 
@@ -861,28 +860,7 @@ namespace OdysseyVehicle
                 ska.renderers.Append(rend);
             }
         }
-        public override void OnVehicleDocked(Vehicle vehicle, Vector3 exitLocation)
-        {
-            base.OnVehicleDocked(vehicle, exitLocation);
-            upgradesInput.collider.enabled = true;
-        }
-        public override void OnVehicleUndocked()
-        {
-            base.OnVehicleUndocked();
-            foreach (var renderer in GetComponentsInChildren<Renderer>())
-            {
-                if(renderer.gameObject.name != "hull_geo")
-                {
-                    continue;
-                }
-                foreach (Material mat in renderer.materials)
-                {
-                    mat.SetFloat("_GlowStrength", 1f);
-                    mat.SetFloat("_GlowStrengthNight", 1f);
-                    mat.EnableKeyword("MARMO_SPECMAP");
-                }
-            }
-        }
+
 
         void IPowerListener.OnPowerUp()
         {

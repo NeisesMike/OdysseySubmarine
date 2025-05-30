@@ -1,21 +1,7 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using UnityEngine;
-using HarmonyLib;
-using System.Runtime.CompilerServices;
-using System.Collections;
-using Nautilus.Options.Attributes;
-using Nautilus.Options;
-using Nautilus.Json;
-using Nautilus.Handlers;
+﻿using HarmonyLib;
 using Nautilus.Utility;
 using BepInEx;
 using BepInEx.Logging;
-using BepInEx.Bootstrap;
 
 namespace OdysseyVehicle
 {
@@ -37,7 +23,7 @@ namespace OdysseyVehicle
         }
     }
 
-    [BepInPlugin("com.mikjaw.subnautica.odyssey.mod", "Odyssey", "1.6.3")]
+    [BepInPlugin("com.mikjaw.subnautica.odyssey.mod", "Odyssey", "1.6.5")]
     [BepInDependency(VehicleFramework.PluginInfo.PLUGIN_GUID, VehicleFramework.PluginInfo.PLUGIN_VERSION)]
     [BepInDependency("com.snmodding.nautilus")]
     public class MainPatcher : BaseUnityPlugin
